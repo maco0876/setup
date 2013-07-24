@@ -2,6 +2,16 @@
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
 # for headless setup. 
 
+sudo apt-get update
+
+sudo apt-get install -y python-software-properties python g++ make
+# Add a new repository for apt-get to search
+sudo add-apt-repository ppa:chris-lea/node.js
+# Update apt-get’s knowledge of which packages are where
+sudo apt-get update
+# Now install nodejs and npm
+sudo apt-get install -y nodejs
+
 # Install nvm: node-version manager
 # https://github.com/creationix/nvm
 sudo apt-get install -y git-core
@@ -38,7 +48,7 @@ fi
 if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
-git clone https://github.com/startup-class/dotfiles.git
+git clone https://github.com/maco0876/dotfiles.git
 ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
